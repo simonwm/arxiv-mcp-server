@@ -10,6 +10,7 @@ from datetime import datetime
 import mcp.types as types
 from ..config import Settings
 import pymupdf4llm
+import fitz
 import logging
 
 logger = logging.getLogger("arxiv-mcp-server")
@@ -18,6 +19,8 @@ settings = Settings()
 # Global dictionary to track conversion status
 conversion_statuses: Dict[str, Any] = {}
 
+fitz.TOOLS.mupdf_display_errors(False)
+fitz.TOOLS.mupdf_display_warnings(False)
 
 @dataclass
 class ConversionStatus:
