@@ -22,6 +22,7 @@ conversion_statuses: Dict[str, Any] = {}
 fitz.TOOLS.mupdf_display_errors(False)
 fitz.TOOLS.mupdf_display_warnings(False)
 
+
 @dataclass
 class ConversionStatus:
     """Track the status of a PDF to Markdown conversion."""
