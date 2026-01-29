@@ -6,6 +6,7 @@ This module implements an MCP server for interacting with arXiv.
 """
 
 import logging
+import asyncio
 import mcp.types as types
 from typing import Dict, Any, List
 from mcp.server import Server
@@ -52,7 +53,10 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[types.TextCont
         if name == "search_papers":
             return await handle_search(arguments)
         elif name == "download_paper":
-            return await handle_download(arguments)
+            # handle_download is now synchronous, so we need to run it in executor
+            return await asyncio.get_event_loop().run_in_executor(
+                None, lambda: handle_download(arguments)
+            )
         elif name == "list_papers":
             return await handle_list_papers(arguments)
         elif name == "read_paper":

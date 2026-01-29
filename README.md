@@ -6,6 +6,10 @@
 [![PyPI Downloads](https://img.shields.io/pypi/dm/arxiv-mcp-server.svg)](https://pypi.org/project/arxiv-mcp-server/)
 [![PyPI Version](https://img.shields.io/pypi/v/arxiv-mcp-server.svg)](https://pypi.org/project/arxiv-mcp-server/)
 
+# Changed in this fork
+
+The `download_paper` tool runs synchronously to make it work with Vibe.
+
 # ArXiv MCP Server
 
 > 🔍 Enable AI assistants to search and access arXiv papers through a simple MCP interface.
